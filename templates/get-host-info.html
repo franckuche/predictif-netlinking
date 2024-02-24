@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Response</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: 0 auto; padding: 20px; }
+        .response-item { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>API Response Data</h1>
+        <div class="response-item"><strong>View:</strong> {{ response_data.view }}</div>
+        <div class="response-item"><strong>Host:</strong> {{ response_data.host }}</div>
+        <div class="response-item"><strong>Host Value:</strong> {{ response_data.hostValue }}</div>
+        <div class="response-item"><strong>Host Trust:</strong> {{ response_data.hostTrust }}</div>
+        <div class="response-item"><strong>Semantic Value:</strong> {{ response_data.semanticValue }}</div>
+        <div class="response-item"><strong>Babbar Authority Score:</strong> {{ response_data.babbarAuthorityScore }}</div>
+        <div class="response-item"><strong>Babbar Connect:</strong> {{ response_data.BabbarConnect }}</div>
+        <div class="response-item"><strong>IPs:</strong> {{ response_data.ips | join(', ') }}</div>
+        <div class="response-item"><strong>Last Update:</strong> {{ response_data.lastUpdate }}</div>
+        <div class="response-item"><strong>Known URLs:</strong> {{ response_data.knownUrls }}</div>
+        <div class="response-item"><strong>Backlinks - Link Count:</strong> {{ response_data.backlinks.linkCount }}</div>
+        <div class="response-item"><strong>Backlinks URL:</strong> {{ response_data.backlinks.linkCount }}</div>
+        <div class="response-item"><strong>Backlinks Hosts:</strong> {{ response_data.backlinks.hostCount }}</div>
+        <div class="response-item"><strong>Backlinks Domains:</strong> {{ response_data.backlinks.domainCount }}</div>
+        <div class="response-item"><strong>Babbar Authority Score (BAS):</strong> {{ response_data.babbarAuthorityScore }}</div>
+    </div>
+</body>
+</html>

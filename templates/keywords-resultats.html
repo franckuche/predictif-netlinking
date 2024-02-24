@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}Résultats pour le mot-clé : {{ keyword }}{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #FFFFFF;
+            color: #333740;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column; /* Changez la direction de flex pour empiler verticalement sur petits écrans */
+        }
+
+        .results-table {
+            width: calc(100% - 16%); /* 240px est la largeur du sidebar, ajustez selon votre design */
+            margin-left: 15%; /* Assurez-vous que cela correspond à la largeur du sidebar */
+            margin-top: 0; /* Ajustez si nécessaire */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            box-sizing: border-box;
+
+        }
+        /*.dashboard {
+            width: calc(100% - 16%);
+            margin-left: 15%;
+            margin-top: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Responsivité: Assurez-vous que la dashboard occupe toute la largeur sur les écrans plus petits */
+        @media (max-width: 768px) {
+            .dashboard {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+/* Assurez-vous que le reste de votre CSS reste inchangé */
+        .card {
+            background: #F9FAFB;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: border-color 0.3s ease;
+        }
+        .card:hover {
+            border-color: #CBD5E0;
+        }
+        .card h3 {
+            margin: 0;
+            color: #2C5282;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .card p {
+            margin: 0;
+            line-height: 1.5;
+        }
+        .card p + p {
+            margin-top: 5px;
+        }
+        .separator {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+        }
+        .sub-info {
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 0.8rem;
+        }
+        .highlight {
+            color: #060B29;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .indicator {
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        /* Ajout du CSS pour le sidebar */
+        .sidebar {
+            background-color: #060B29;
+            width: 15%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 2%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-align: left;
+        }
+        .sidebar img {
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+            box-shadow: none;
+            padding-bottom: 15%;
+        }
+        .sidebar a {
+            text-decoration: none;
+            display: block;
+            margin: 10px 20px;
+            color: #fff;
+            background-color: #060B29;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 5%;
+        }
+        .sidebar a:hover {
+            background-color: #060B29;
+        }
+        .sidebar i {
+            margin-right: 10px;
+        }
+
+/* CSS pour le titre h1 */
+h1 {
+    color: #333740; /* Couleur de votre choix */
+    font-size: 24px; /* Taille de votre choix */
+}
+
+.dashboard-header{
+    margin-bottom: -5%;
+}
+
+/* CSS pour le bouton de téléchargement */
+.download-button {
+    padding: 10px 20px;
+    background-color: #060B29;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* CSS pour le conteneur principal du tableau de bord */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px 40px;
+    margin-left: 240px; /* Ajustez pour correspondre à la largeur du sidebar */
+    box-sizing: border-box;
+}
+
+/* CSS pour assurer que le header et les cartes sont alignés correctement sur les petits écrans */
+@media (max-width: 768px) {
+    .dashboard-header,
+    .dashboard {
+        margin-left: 0;
+    }
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+    </style>
+<div class="dashboard-header">
+    <h1>Résultats pour le mot-clé : {{ keyword }}</h1>
+    <button class="download-button">Télécharger</button>
+</div>
+<!-- Fin du conteneur du header -->
+
+<!-- Début du conteneur principal du tableau de bord -->
+<div class="dashboard">
+    <!-- Contenu des cartes ici --> 
+    <div class="card">
+        <h3>Nombre de mots sur la requête</h3>
+        <div class="separator"></div>
+        <p class="highlight">Moyenne : {{ stats.moyenne_mots }} mots</p>
+        <p class="sub-info">Maximum : {{ stats.max_mots }} mots</p>
+        <p class="sub-info">Minimum: {{ stats.min_mots }} mots</p>
+    </div>
+
+    <!-- Carte pour les headings en moyenne -->
+    <div class="card">
+        <h3>Nombre de headings sur la requête</h3>
+        <div class="separator"></div>
+        <p class="highlight">Moyenne : {{ stats.moyenne_headings }} headings</p>
+        <p class="sub-info">Maximum : {{ stats.max_headings }} headings</p>
+        <p class="sub-info">Minimum : {{ stats.min_headings }} headings</p>
+    </div>
+
+    <!-- Carte pour les images en moyenne -->
+    <div class="card">
+        <h3>Nombre d'images sur la requête</h3>
+        <div class="separator"></div>
+        <p class="highlight">Moyenne : {{ stats.moyenne_images }} images</p>
+        <p class="sub-info">Maximum : {{ stats.max_images }} images</p>
+        <p class="sub-info">Minimum : {{ stats.min_images }} images</p>
+    </div>
+
+    <!-- Carte pour le nombre moyen de balises H1 -->
+    <div class="card">
+        <h3>Nombre de H1 sur la requête</h3>
+        <div class="separator"></div>
+        <p class="highlight">Moyenne {{ stats.moyenne_h1 }} H1</p>
+        <p class="sub-info">Maximum : {{ stats.max_h1 }} H1</p>
+        <p class="sub-info">Minimum : {{ stats.min_h1 }} H1</p>
+        <!-- Pas de max/min pour H1/H2 car généralement 1 par article -->
+    </div>
+
+    <!-- Carte pour le nombre moyen de balises H2 -->
+    <div class="card">
+        <h3>Nombre de H2 sur la requête</h3>
+        <div class="separator"></div>
+        <p class="highlight">Moyenne : {{ stats.moyenne_h2 }} H2</p>
+        <p class="sub-info">Maximum : {{ stats.max_h2 }} H2</p>
+        <p class="sub-info">Minimum : {{ stats.min_h2 }} H2</p>
+    </div>
+
+    <!-- Carte pour le score moyen Yourtext Guru -->
+    <div class="card">
+        <h3>Score Yourtext Guru sur la requête</h3>
+        <div class="separator"></div>
+        <p class="highlight">Moyenne : {{ stats.moyenne_score }}</p>
+        <p class="sub-info">Maximum : {{ stats.max_score }}</p>
+        <p class="sub-info">Minimum : {{ stats.min_score }}</p>
+    </div>
+
+    <!-- Carte pour le danger moyen Yourtext Guru -->
+    <div class="card">
+        <h3>Danger Yourtext Guru sur la requête</h3>
+        <div class="separator"></div>
+        <p class="highlight">Moyenne : {{ stats.moyenne_danger }}</p>
+        <p class="sub-info">Maximum : {{ stats.max_danger }}</p>
+        <p class="sub-info">Minimum : {{ stats.min_danger }}</p>
+    </div>
+    
+    <!-- Carte pour le nombre moyen d'hôtes référents -->
+    <div class="card">
+        <h3>Nombre de RD sur la requête</h3>
+        <div class="separator"></div>
+        <p class="highlight">Moyenne : {{ stats.moyenne_hostCount }}</p>
+        <p class="sub-info">Maximum : {{ stats.max_hostCount }}</p>
+        <p class="sub-info">Minimum : {{ stats.min_hostCount }}</p>
+    </div>
+
+    <!-- Carte pour le nombre moyen de liens -->
+    <div class="card">
+        <h3>Nombre de liens sur la requête</h3>
+        <div class="separator"></div>
+        <p class="highlight">Moyenne : {{ stats.moyenne_linkCount }}</p>
+        <p class="sub-info">Maximum : {{ stats.max_linkCount }}</p>
+        <p class="sub-info">Minimum : {{ stats.min_linkCount }}</p> 
+    </div>
+</div>
+{% endblock %}

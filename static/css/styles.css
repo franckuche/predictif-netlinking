@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #060B29;
+    display: flex;
+}
+
+.sidebar img {
+    display: block; /* Rend l'image traitée comme un bloc pour permettre le centrage */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    width: 50%; /* Ajustez la largeur selon vos besoins */
+    box-shadow: none; /* Supprime l'ombre, si nécessaire */
+    padding-bottom: 15%;
+}
+
+
+.sidebar {
+    background-color: #060B29;
+    width: 17%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 2%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-align: left;
+    
+}
+
+.sidebar img.logo:hover {
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+
+.sidebar, img {
+    text-align: left;
+    
+}
+
+.sidebar a {
+    text-decoration: none;
+    display: block;
+    margin: 10px 20px; /* Ajustez cette valeur selon vos besoins */
+    color: #fff;
+    background-color: #060B29;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 5%;
+}
+
+.sidebar a:hover, .btn:hover {
+    background-color: #060B29;
+}
+
+.sidebar i {
+    margin-right: 10px;
+}
+
+.content {
+    margin-left: 17%; /* La largeur fixe de la barre latérale */
+    width: calc(100% - 17%); /* Prend l'espace restant */
+    display: flex;
+    flex-direction: column; /* Les éléments sont empilés verticalement */
+    align-items: center; /* Centre les éléments horizontalement dans le conteneur */
+    justify-content: flex-start; /* Alignement vertical au début */
+    background-color: #FFFFFF;
+    margin-left: 10%; /* Cela doit correspondre à la largeur de votre sidebar */
+    width: 100%; /* Cela doit prendre l'espace restant */
+    padding: 1rem;
+    box-sizing: border-box;
+    min-height: 100vh; /* Hauteur minimale pour occuper tout l'espace vertical */
+}
+
+.header, .header-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-left: calc(20% / 2); /* Ajuster la marge gauche */
+    margin-right: calc(20% / 2); /* Ajuster la marge gauche */
+    width: 100%; /* Utilisez la pleine largeur du conteneur .content */
+    text-align: center; /* Centre le texte du titre */
+    padding: 0.5rem 0; /* Ajustez selon vos besoins pour le padding vertical */
+    margin-bottom: 3%;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.title {
+    margin-left: calc(20% / 2); /* Ajuster la marge gauche */
+    margin-right: calc(20% / 2); /* Ajuster la marge gauche */
+    text-align: center;
+    margin-top: 5%;
+}
+
+.table-box {
+    width: 48%;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+table, th, td {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border: none;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+thead {
+    background-color: #060B29;
+    color: white;
+    border-radius: 8px;
+}
+
+.total-row {
+    font-weight: bold;
+}
+
+.form {
+    width: 100%; /* Utilisez la pleine largeur du conteneur .content */
+    max-width: 600px; /* Largeur maximale du formulaire pour ne pas être trop large */
+    margin: 1rem auto; /* Ajoutez une marge automatique pour centrer le formulaire et un peu d'espace au-dessus et en dessous */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Assurez-vous d'ajouter des règles pour la classe .form-group et .form-control pour contrôler leur apparence */
+.form-group {
+    margin-bottom: 1rem; /* Espace entre les éléments du formulaire */
+}
+
+.form-control {
+    width: calc(100% - 2rem); /* Soustrayez le padding total pour obtenir la vraie largeur */
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.btn, .export-btn {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    background-color: #060B29;
+    padding: 10px;
+    margin-top: 5%;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn, .export-btn {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    background-color: #060B29;
+    padding: 10px;
+    margin-top: 5%;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-link {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    background-color: #060B29;
+    padding: 10px;
+    margin-top: 5%;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-container{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+}
+
+.full-width-table-box {
+    width: 100%; /* Utilise la pleine largeur disponible */
+    margin-bottom: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    overflow-y: auto;
+    border-collapse: collapse;
+    margin-left: -2%;
+}
+
+.full-width-table-box table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.full-width-table-box th, .full-width-table-box td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    border: 1px solid #ddd; /* Couleur de la bordure */
+}
+
+.full-width-table-box thead {
+    background-color: #060B29;
+    color: white;
+    border-radius: 8px;
+}
+.full-width-table-box th.keyword, .full-width-table-box td.keyword {
+    width: 15%; /* Ajustez selon vos besoins */
+}
+
+.full-width-table-box th.volume, .full-width-table-box td.volume {
+    width: 15%; /* Ajustez selon vos besoins */
+}
+
+.center-button .button-link {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    background-color: #060B29;
+    padding: 10px;
+    margin-top: 5%;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

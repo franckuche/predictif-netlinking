@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+httpx
+Jinja2
+python-dotenv
+pandas
+beautifulsoup4
+requests
+python-multipart
+pymongo

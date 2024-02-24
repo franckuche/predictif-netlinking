@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Check keywords - Formumlaire{% endblock %}
+
+{% block content %}
+<style>
+</style>
+<div class="content">
+<h1>Check keywords</h1>
+<div class="form">
+    <form action="/keywords-resultats/" method="post">
+        <div class="form-group">
+            <label for="keywords">Mot-clé :</label>
+            <input type="text" id="keywords" name="keywords" class="form-control">
+        </div>
+        <input type="submit" value="Envoyer" class="btn">
+    </form>
+</div>
+</div>
+{% endblock %}
