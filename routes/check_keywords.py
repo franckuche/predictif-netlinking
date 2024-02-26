@@ -319,7 +319,7 @@ def calculate_stats(results):
         'max_h2': calculate_max(h2_counts),
         'min_h2': calculate_min(h2_counts),
         'moyenne_score': f"{calculate_average(scores):.2f}%",
-        'max_score': f"{calculate_max(scores):.2f}%",
+        'max_score': f"{float(calculate_max(scores)):.2f}%",
         'min_score': f"{calculate_min(scores):.2f}%",
         'moyenne_danger': f"{calculate_average(dangers):.2f}%",
         'max_danger': f"{calculate_max(dangers):.2f}%",
@@ -356,6 +356,10 @@ def calculate_min(lst):
     """Trouve le minimum dans une liste de nombres."""
     return min(lst) if lst else 0
 
+def calculate_max(scores):
+    # Exemple où scores est une liste de nombres
+    max_score = max(scores)  # Suppose que scores est une liste de float/int
+    return max_score  # S'assure que c'est un nombre
 
 # Route GET pour le formulaire de vérification des mots-clés
 @router.get("/check-keywords")

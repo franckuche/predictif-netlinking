@@ -92,8 +92,6 @@ body {
 }
 
 h1 {
-    margin-left: calc(20% / 2); /* Ajuster la marge gauche */
-    margin-right: calc(20% / 2); /* Ajuster la marge gauche */
     width: 100%; /* Utilisez la pleine largeur du conteneur .content */
     text-align: center; /* Centre le texte du titre */
     padding: 0.5rem 0; /* Ajustez selon vos besoins pour le padding vertical */
@@ -218,8 +216,8 @@ thead {
 
 .header-container{
         width: 100%;
-        margin: 0;
-        padding: 0;
+        display: flex;
+        justify-content: center;    
 }
 
 .full-width-table-box {
